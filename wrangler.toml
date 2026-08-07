@@ -1,7 +1,0 @@
-name = "desadigital"
-main = ".open-next/worker.js"
-compatibility_date = "2024-09-23"
-compatibility_flags = ["async_local_storage"]
-
-[assets]
-directory = ".open-next/assets"
