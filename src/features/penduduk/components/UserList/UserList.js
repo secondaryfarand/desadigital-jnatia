@@ -6,7 +6,7 @@ export default function UserList({ users }) {
     return (
       <div className={styles.container}>
         <div className={styles.emptyState}>
-          <h3>Belum ada user terdaftar.</h3>
+          <h3>Belum ada penduduk yang terdaftar.</h3>
         </div>
       </div>
     );

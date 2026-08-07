@@ -30,6 +30,7 @@ const userModel = new mongoose.Schema({
     }
     }, { 
     timestamps: true // Otomatis membuat field createdAt dan updatedAt
+    // collection: 'penduduk' // <--- Paksa nama collection menjadi 'penduduk supaya kalau mau ga plurarin di mongo db (+s)'
     
 });
 
@@ -64,7 +65,7 @@ userModel.methods.comparePassword = async function(candidatePassword) {
 
 
 // const User = mongoose.model('User', userModel);
-const User = mongoose.models.User || mongoose.model('User', userModel);
+const User = mongoose.models.Penduduk || mongoose.model('Penduduk', userModel);
 
 export default User;
 // export default {User};

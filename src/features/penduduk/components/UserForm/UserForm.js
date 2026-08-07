@@ -23,7 +23,7 @@ export default function UserForm() {
 
   return (
     <div className={styles.formCard}>
-      <h3 className={styles.formTitle}>Registrasi User Baru</h3>
+      <h3 className={styles.formTitle}>Registrasi Penduduk Baru</h3>
 
       {state.message && (
         <div className={state.success ? styles.successBanner : styles.errorMessage}>
