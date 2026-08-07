@@ -1,14 +1,8 @@
-
 // src/lib/db.js
 import mongoose from 'mongoose';
 
-const DB_URI = process.env.DB_URI;
+// HAPUS pengecekan DB_URI dari sini (luar fungsi)
 
-if (!DB_URI) {
-  throw new Error('Tolong definisikan DB_URI di dalam file .env');
-}
-
-// Menyimpan koneksi di objek global Node.js agar tidak connect ulang saat Hot-Reload Next.js
 let cached = global.mongoose;
 
 if (!cached) {
@@ -16,11 +10,20 @@ if (!cached) {
 }
 
 export async function connectDB() {
+  // 1. PINDAHKAN pengecekan variabel ke DALAM fungsi ini
+  const DB_URI = process.env.DB_URI;
+
+  if (!DB_URI) {
+    throw new Error('Tolong definisikan DB_URI di dalam file .env');
+  }
+
+  // 2. Lanjutkan proses koneksi seperti biasa
   if (cached.conn) {
-    return cached.conn; // Jika sudah terhubung, langsung kembalikan koneksi yang ada
+    return cached.conn;
   }
 
   if (!cached.promise) {
+    // Pastikan menggunakan DB_URI di sini
     cached.promise = mongoose.connect(DB_URI).then((mongoose) => {
       return mongoose;
     });
