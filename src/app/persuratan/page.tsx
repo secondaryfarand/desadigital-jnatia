@@ -26,7 +26,7 @@ export default async function PersuratanPage() {
       <LacakSurat />
 
       {/* 3. Form Pengajuan Surat */}
-      <FormPengajuanSurat daftarJenisSurat={DAFTAR_JENIS_SURAT} />
+      <FormPengajuanSurat daftarJenisSurat={DAFTAR_JENIS_SURAT as any} />
     </main>
   );
 }
