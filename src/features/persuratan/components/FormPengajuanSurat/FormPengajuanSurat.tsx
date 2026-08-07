@@ -4,6 +4,8 @@ import { useState, useTransition } from 'react';
 import { submitPengajuanSuratAction } from '../../actions';
 import styles from './FormPengajuanSurat.module.css';
 
+export const dynamic = 'force-dynamic'; // 🔑 WAJIB: Memberitahu Next.js agar TIDAK mencoba pre-render halaman ini saat build time
+
 // 1. Definisi Tipe Data JenisSurat
 export interface JenisSurat {
   _id: string;
