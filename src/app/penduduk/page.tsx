@@ -1,4 +1,5 @@
-// import { getAllUsersService } from '@/features/users/services/userService';
+export const dynamic = 'force-dynamic';
+
 import { getUsersQuery } from '@/features/penduduk/queries';
 import UserList from '@/features/penduduk/components/UserList/UserList';
 import UserForm from '@/features/penduduk/components/UserForm/UserForm';
