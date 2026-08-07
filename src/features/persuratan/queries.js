@@ -1,5 +1,6 @@
 import {connectDB} from '@/lib/db'; // Sesuaikan lokasi koneksi DB kamu
 import JenisSurat from '@/features/persuratan/models/JenisSurat'; 
+import Surat from '@/features/persuratan/models/Surat'; 
 
 export async function getDaftarJenisSuratQuery() {
   try {
@@ -21,28 +22,27 @@ export async function getDaftarJenisSuratQuery() {
   }
 }
 
+export async function getAntrianSuratQuery() {
+  try {
+    await connectDB();
 
-// import 'server-only';
-// import {
-//   getAllJenisSuratService,
-//   getStatusSuratByTiketService,
-// } from './services/persuratanService';
+    // Menggunakan model Surat
+    const listAntrian = await Surat.find({
+      status: { $in: ['PENDING', 'DIPROSES'] }
+    })
+      .select('nomor_tiket status createdAt')
+      .sort({ createdAt: 1 })
+      .lean();
 
-// export async function getDaftarJenisSuratQuery() {
-//   try {
-//     return await getAllJenisSuratService();
-//   } catch (error) {
-//     console.error('Error in getDaftarJenisSuratQuery:', error);
-//     return [];
-//   }
-// }
-
-// export async function getStatusSuratQuery(nomorTiket) {
-//   try {
-//     if (!nomorTiket) return null;
-//     return await getStatusSuratByTiketService(nomorTiket);
-//   } catch (error) {
-//     console.error('Error in getStatusSuratQuery:', error);
-//     return null;
-//   }
-// }
+    return listAntrian.map((doc, index) => ({
+      _id: doc._id.toString(),
+      nomor_tiket: doc.nomor_tiket,
+      status: doc.status,
+      urutan: index + 1,
+      tanggal: doc.createdAt ? doc.createdAt.toISOString() : null,
+    }));
+  } catch (error) {
+    console.error('Error fetching antrian surat:', error);
+    return [];
+  }
+}
