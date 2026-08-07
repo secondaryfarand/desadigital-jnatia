@@ -4,23 +4,9 @@ import { useState, useTransition } from 'react';
 import { submitPengajuanSuratAction } from '../../actions';
 import styles from './FormPengajuanSurat.module.css';
 
-export const dynamic = 'force-dynamic'; // 🔑 WAJIB: Memberitahu Next.js agar TIDAK mencoba pre-render halaman ini saat build time
+export const dynamic = 'force-dynamic'; 
 
-// 1. Definisi Tipe Data JenisSurat
-export interface JenisSurat {
-  _id: string;
-  nama_surat: string;
-  slug: string;
-  is_active?: boolean;
-}
-
-export interface FormPengajuanSuratProps {
-  daftarJenisSurat?: JenisSurat[];
-}
-
-export default function FormPengajuanSurat({
-  daftarJenisSurat = [],
-}: FormPengajuanSuratProps) {
+export default function FormPengajuanSurat({ daftarJenisSurat = [] }) {
   console.log('CLIENT DAFTAR SURAT:', daftarJenisSurat);
   const [isPending, startTransition] = useTransition();
 
@@ -37,28 +23,19 @@ export default function FormPengajuanSurat({
   const [namaUsaha, setNamaUsaha] = useState('');
   const [alamatUsaha, setAlamatUsaha] = useState('');
 
-  const [nomorTiketResult, setNomorTiketResult] = useState<string | null>(null);
+  const [nomorTiketResult, setNomorTiketResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // 2. TypeScript sekarang tahu item bertipe JenisSurat
   const currentSelectedSurat = (daftarJenisSurat || []).find(
-    (item: JenisSurat) => item._id === selectedJenisId
+    (item) => item._id === selectedJenisId
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMessage('');
 
     const isSKU = currentSelectedSurat?.slug === 'surat-keterangan-usaha-sku';
     
-    // Type assertion atau object assertion sederhana untuk TypeScript
-    const dataTambahan: Record<string, string> = isSKU
-      ? {
-          nama_usaha: namaUsaha,
-          alamat_usaha: alamatUsaha,
-        }
-      : {};
-
     startTransition(async () => {
       const formData = new FormData();
       formData.append('jenis_surat_id', selectedJenisId);
@@ -141,7 +118,7 @@ export default function FormPengajuanSurat({
           className={styles.select}
         >
           <option value="">-- Pilih Jenis Surat --</option>
-          {(daftarJenisSurat || []).map((surat: JenisSurat) => (
+          {(daftarJenisSurat || []).map((surat) => (
             <option key={surat._id} value={surat._id}>
               {surat.nama_surat}
             </option>
@@ -285,4 +262,3 @@ export default function FormPengajuanSurat({
     </form>
   );
 }
-
