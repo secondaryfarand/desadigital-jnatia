@@ -1,0 +1,230 @@
+/* Tambahkan di bawah file Navbar.module.css */
+
+.menuToggleBtn {
+  display: none; /* Sembunyikan di Desktop */
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #374151;
+}
+
+.menuToggleBtn:hover {
+  background-color: #f3f4f6;
+}
+
+@media (max-width: 768px) {
+  .menuToggleBtn {
+    display: flex; /* Tampilkan hanya di HP */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* RESPONSIVE */
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background-color: #d1fae5;
+  color: #047857;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.titleText {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* ==========================================
+   TOP HEADER (Mobile & Desktop)
+   ========================================== */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  background-color: #d1fae5;
+  color: #047857;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.title {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   BOTTOM NAVIGATION BAR (Khusus Mobile)
+   ========================================== */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bottomNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 6px 0;
+  width: 20%;
+}
+
+.bottomNavItem:hover,
+.bottomNavItem.active {
+  color: #059669; /* Emerald 600 */
+}
+
+.bottomNavIcon {
+  font-size: 1.25rem;
+}
+
+/* ==========================================
+   DESKTOP ADAPTATION (Layar >= 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  /* Sembunyikan Bottom Nav saat di Desktop */
+  .bottomNav {
+    display: none;
+  }
+}

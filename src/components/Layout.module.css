@@ -1,0 +1,37 @@
+/* ==========================================
+   MOBILE-FIRST BASE STYLES (Default Layar HP)
+   ========================================== */
+
+.wrapper {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.mainWrapper {
+  display: block; /* Di HP stacked ke bawah */
+}
+
+.content {
+  width: 100%;
+  margin-left: 0; /* HP tidak butuh margin kiri */
+  padding: 16px;
+  padding-bottom: 84px; /* PENTING: Mencegah konten paling bawah tertutup Bottom Nav */
+  background-color: #f9fafb;
+  min-height: calc(100vh - 56px);
+}
+
+/* ==========================================
+   DESKTOP ADAPTATION (Layar >= 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  .mainWrapper {
+    display: flex;
+  }
+
+  .content {
+    margin-left: 240px; /* Ruang untuk sidebar desktop */
+    padding: 32px;
+    padding-bottom: 32px; /* Kembalikan padding normal di desktop */
+    min-height: calc(100vh - 64px);
+  }
+}

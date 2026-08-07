@@ -1,0 +1,116 @@
+/* Sidebar default untuk Desktop */
+.sidebar {
+  width: 256px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  height: calc(100vh - 64px);
+  position: fixed;
+  left: 0;
+  top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 40;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Background gelap transparan di HP saat sidebar terbuka */
+.overlay {
+  display: none;
+}
+
+/* --- Responsive HP / Screen < 768px --- */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%); /* Sembunyikan sidebar ke kiri luar layar */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Munculkan sidebar saat class active ditambahkan */
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 30;
+  }
+}
+/* ---------------- */
+
+
+.sidebar {
+  width: 256px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  height: calc(100vh - 64px);
+  position: fixed;
+  left: 0;
+  top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menuSection {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.menuLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  margin-top: 8px;
+  padding: 0 8px;
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: #ecfdf5; /* Emerald 50 */
+  color: #047857; /* Emerald 700 */
+}
+
+.icon {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.sidebarFooter {
+  padding: 16px;
+  border-top: 1px solid #f3f4f6;
+  background-color: #f9fafb;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
