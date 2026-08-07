@@ -6,7 +6,7 @@ import PantauAntrian from '@/features/persuratan/components/PantauAntrian/Pantau
 import { getAntrianSuratQuery } from '@/features/persuratan/queries'; // ✅ Import query baru
 
 export default async function PersuratanPage() {
-  const daftarAntrian = await getAntrianSuratQuery();
+  const daftarAntrian = await getAntrianSuratQuery() as any[];
   return (
 
     <main style={{ minHeight: '100vh', backgroundColor: '#f9fafb', padding: '2.5rem 1rem 6rem 1rem' }}>
@@ -20,7 +20,7 @@ export default async function PersuratanPage() {
       </div>
 
     {/* 1. Pantau Antrian */}
-      <PantauAntrian daftarAntrian={daftarAntrian} />
+      <PantauAntrian daftarAntrian={daftarAntrian as any} />
 
       {/* 2. Lacak Surat */}
       <LacakSurat />

@@ -2,6 +2,18 @@
 
 import styles from './PantauAntrian.module.css';
 
+// export interface AntrianItem {
+//   _id: string;
+//   nomor_tiket: string;
+//   status: string;
+//   urutan: number;
+//   tanggal: string | null;
+// }
+
+// interface PantauAntrianProps {
+//   daftarAntrian?: AntrianItem[]; // 🔑 Jangan biarkan bertipe never[]
+// }
+
 export default function PantauAntrian({ daftarAntrian = [] }) {
   const totalAntrian = daftarAntrian.length;
 

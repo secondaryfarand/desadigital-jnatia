@@ -1,0 +1,130 @@
+.container {
+  max-width: 700px; /* 🔑 Lebarkan dari 600px ke 700px */
+  margin: 0 auto 2rem auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.cardItem {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+  padding: 1.125rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cardItem:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.625rem;
+}
+
+.nomorTiket {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.statusBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.statusDiproses {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.statusSelesai {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #4b5563;
+  margin-bottom: 0.625rem;
+}
+
+.kategori {
+  font-weight: 600;
+  color: #374151;
+}
+
+.tanggal {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+/* 🔑 Style untuk Teks Isi Aduan */
+.isiAduan {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+  background-color: #f9fafb;
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.375rem;
+  border-left: 3px solid #d1d5db;
+  
+  /* Truncate otomatis jika lebih dari 3 baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.emptyState {
+  background-color: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 0.625rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
